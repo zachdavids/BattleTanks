@@ -18,4 +18,7 @@ public:
 	virtual void BeginPlay() override;
 private:
 	ATank* GetControlledTank() const;
+	virtual void Tick(float) override;
+	void AimTowardsCrosshair();
+	bool GetSightRayHitLocation(FVector&) const;
 };
