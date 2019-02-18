@@ -8,6 +8,7 @@
 #include "TankAimingComponent.generated.h"
 
 class UTankBarrel;
+class UTankTurret;
 
 /**
  *
@@ -21,8 +22,10 @@ public:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
+	void SetTurretReference(UTankTurret* TurretToSet);
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 	void MoveBarrelTowards(FVector AimDirection);
 private:
 	UTankBarrel* Barrel = nullptr;
+	UTankTurret* Turret = nullptr;
 };

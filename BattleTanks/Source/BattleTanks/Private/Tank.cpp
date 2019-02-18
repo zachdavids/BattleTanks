@@ -4,6 +4,7 @@
 #include "TankAimingComponent.h"
 
 void ATank::SetBarrelReference(UTankBarrel* BarrelToSet) { TankAimingComponent->SetBarrelReference(BarrelToSet); }
+void ATank::SetTurretReference(UTankTurret* TurretToSet) { TankAimingComponent->SetTurretReference(TurretToSet); }
 
 // Sets default values
 ATank::ATank()
@@ -22,6 +23,11 @@ void ATank::BeginPlay()
 void ATank::AimAt(FVector HitLocation)
 {
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
+}
+
+void ATank::Fire()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Fire Pressed"));
 }
 
 // Called to bind functionality to input
