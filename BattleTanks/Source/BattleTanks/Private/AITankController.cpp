@@ -2,11 +2,7 @@
 
 #include "AITankController.h"
 
-ATank* AAITankController::GetControlledTank() const
-{
-	return Cast<ATank>(GetPawn());
-}
-
+ATank* AAITankController::GetControlledTank() const { return Cast<ATank>(GetPawn()); }
 ATank * AAITankController::GetPlayerTank() const
 {
 	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
@@ -21,4 +17,14 @@ void AAITankController::BeginPlay()
 {
 	Super::BeginPlay();
 	UE_LOG(LogTemp, Warning, TEXT("Player is %s"), *GetPlayerTank()->GetName());
+}
+
+void AAITankController::Tick(float DelaTime)
+{
+	Super::Tick(DelaTime);
+	if (GetPlayerTank())
+	{
+		//TODO MOVE
+		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+	}
 }

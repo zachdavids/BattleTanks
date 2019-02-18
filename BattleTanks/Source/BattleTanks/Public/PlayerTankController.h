@@ -24,9 +24,9 @@ private:
 	UPROPERTY(EditAnywhere)
 	float LineTraceRange = 1000000.0f;
 	ATank* GetControlledTank() const;
-	virtual void Tick(float) override;
+	virtual void Tick(float DeltaTime) override;
 	void AimTowardsCrosshair();
-	bool GetSightRayHitLocation(FVector&) const;
+	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
 	bool GetHitLocation(FVector LookDirection, FVector& HitLocation) const;
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 };
