@@ -9,6 +9,9 @@
 
 class UTankBarrel;
 
+/**
+ *
+ */
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BATTLETANKS_API UTankAimingComponent : public UActorComponent
 {
