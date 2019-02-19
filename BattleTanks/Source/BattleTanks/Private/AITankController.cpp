@@ -16,6 +16,6 @@ void AAITankController::Tick(float DelaTime)
 	{
 		ATank* ControlledTank = Cast<ATank>(GetPawn());
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
-		ControlledTank->Fire(); //TODO LIMIT FIRING RATE
+		ControlledTank->Fire();
 	}
 }
