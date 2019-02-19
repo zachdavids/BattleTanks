@@ -3,29 +3,19 @@
 #include "AITankController.h"
 #include "Tank.h"
 
-ATank* AAITankController::GetControlledTank() const { return Cast<ATank>(GetPawn()); }
-ATank * AAITankController::GetPlayerTank() const
-{
-	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
-	if (!PlayerPawn)
-	{
-		return nullptr;
-	}
-	return Cast<ATank>(PlayerPawn);
-}
-
 void AAITankController::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("Player is %s"), *GetPlayerTank()->GetName());
 }
 
 void AAITankController::Tick(float DelaTime)
 {
 	Super::Tick(DelaTime);
-	if (GetPlayerTank())
+	ATank* PlayerTank = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	if (PlayerTank)
 	{
-		//TODO MOVE
-		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+		ATank* ControlledTank = Cast<ATank>(GetPawn());
+		ControlledTank->AimAt(PlayerTank->GetActorLocation());
+		ControlledTank->Fire(); //TODO LIMIT FIRING RATE
 	}
 }
