@@ -6,9 +6,10 @@
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
 
+class AProjectile;
 class UTankBarrel;
 class UTankTurret;
-class AProjectile;
+class UTankMovementComponent;
 class UTankAimingComponent;
 
 UCLASS()
@@ -31,7 +32,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	UTankAimingComponent* TankAimingComponent = nullptr;
-
 private:	
 	UTankBarrel* Barrel = nullptr;
 	float LastFireTime = 0.0f;

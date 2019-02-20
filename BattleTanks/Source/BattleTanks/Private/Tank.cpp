@@ -4,6 +4,7 @@
 #include "TankBarrel.h"
 #include "Projectile.h"
 #include "TankAimingComponent.h"
+#include "TankMovementComponent.h"
 
 void ATank::SetTurretReference(UTankTurret* TurretToSet) { TankAimingComponent->SetTurretReference(TurretToSet); }
 void ATank::SetBarrelReference(UTankBarrel* BarrelToSet) 

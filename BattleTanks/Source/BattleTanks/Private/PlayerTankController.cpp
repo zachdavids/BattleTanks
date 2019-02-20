@@ -8,7 +8,6 @@ ATank* APlayerTankController::GetControlledTank() const { return Cast<ATank>(Get
 void APlayerTankController::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("Player controlling %s"), *GetControlledTank()->GetName());
 }
 
 void APlayerTankController::Tick(float DeltaTime)
