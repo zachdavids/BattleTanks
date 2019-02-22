@@ -15,7 +15,8 @@ void AAITankController::Tick(float DelaTime)
 	if (PlayerTank)
 	{
 		ATank* ControlledTank = Cast<ATank>(GetPawn());
+		MoveToActor(PlayerTank, AcceptanceRadius); //todo check units
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
-		ControlledTank->Fire();
+		//ControlledTank->Fire();
 	}
 }

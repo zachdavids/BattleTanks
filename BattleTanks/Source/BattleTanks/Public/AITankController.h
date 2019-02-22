@@ -19,4 +19,6 @@ public:
 	virtual void BeginPlay() override;
 private:
 	virtual void Tick(float DeltaTime) override;
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	float AcceptanceRadius = 3000.0f;
 };

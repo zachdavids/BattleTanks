@@ -23,4 +23,13 @@ void UTankMovementComponent::IntendRotate(float Throw)
 	RightTrack->SetThrottle(-Throw);
 }
 
+void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed)
+{
+	FVector Forward = GetOwner()->GetActorForwardVector().GetSafeNormal();
+	FVector ForwardIntention = MoveVelocity.GetSafeNormal();
+	float RotationIntention = FVector::CrossProduct(Forward, ForwardIntention).Z;
+	IntendRotate(RotationIntention);
+	float ForwardThrow = FVector::DotProduct(Forward, ForwardIntention);
+	IntendMoveForward(ForwardThrow);
+}
 
