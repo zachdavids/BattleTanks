@@ -19,6 +19,7 @@ void APlayerTankController::Tick(float DeltaTime)
 
 void APlayerTankController::AimTowardsCrosshair()
 {
+	if (!GetPawn()) { return; }
 	//TODO double check this can be member variable
 	AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
 	if (!ensure(AimingComponent)) { return; }
@@ -39,8 +40,7 @@ bool APlayerTankController::GetSightRayHitLocation(FVector& OutHitLocation) cons
 	FVector LookDirection;
 	if (GetLookDirection(ScreenLocation, LookDirection))
 	{
-		GetHitLocation(LookDirection, OutHitLocation);
-		return true;
+		return GetHitLocation(LookDirection, OutHitLocation);
 	}
 	return false;
 }
