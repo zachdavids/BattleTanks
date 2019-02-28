@@ -10,6 +10,7 @@ void UTankAimingComponent::Initialize(UTankBarrel* BarrelToSet, UTankTurret* Tur
 	Barrel = BarrelToSet;
 	Turret = TurretToSet;
 }
+EFiringState UTankAimingComponent::GetFiringState() const { return FiringState; }
 
 UTankAimingComponent::UTankAimingComponent()
 {

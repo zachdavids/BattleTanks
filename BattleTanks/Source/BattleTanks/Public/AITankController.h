@@ -15,8 +15,10 @@ class BATTLETANKS_API AAITankController : public AAIController
 	GENERATED_BODY()
 public:
 	virtual void BeginPlay() override;
+protected:
+	UPROPERTY(EditAnywhere, Category = Setup)
+	float AcceptanceRadius = 3000.0f;
 private:
 	virtual void Tick(float DeltaTime) override;
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
-	float AcceptanceRadius = 0.0f;
+
 };
