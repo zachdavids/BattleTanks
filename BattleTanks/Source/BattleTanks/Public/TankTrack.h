@@ -14,12 +14,15 @@ class BATTLETANKS_API UTankTrack : public UStaticMeshComponent
 {
 	GENERATED_BODY()
 public:
+
 	UTankTrack();
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	float MaxDrivingForce = 62000000.0f;
 	UFUNCTION(BlueprintCallable, Category = Input)
 	void SetThrottle(float Throttle);
+
 private:
+
 	float CurrentThrottle = 0;
 	virtual void BeginPlay() override;
 	void ApplySidewaysForce();
