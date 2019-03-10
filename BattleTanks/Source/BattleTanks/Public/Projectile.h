@@ -7,6 +7,7 @@
 #include "Projectile.generated.h"
 
 class UProjectileMovementComponent;
+class UParticleSystemComponent;
 
 UCLASS()
 class BATTLETANKS_API AProjectile : public AActor
@@ -14,16 +15,21 @@ class BATTLETANKS_API AProjectile : public AActor
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
+
 	AProjectile();
 	virtual void Tick(float DeltaTime) override;
 	void LaunchProjectile(float Speed);
 
 protected:
-	// Called when the game starts or when spawned
+
 	virtual void BeginPlay() override;
 
 private:
-	// Called every frame
+
+	UPROPERTY(VisibleAnywhere, Category = Components)
+	UStaticMeshComponent* CollisionMesh = nullptr;
+	UPROPERTY(VisibleAnywhere)
+	UParticleSystemComponent* LaunchBlast = nullptr;
+
 	UProjectileMovementComponent* ProjectileComponent = nullptr;
 };

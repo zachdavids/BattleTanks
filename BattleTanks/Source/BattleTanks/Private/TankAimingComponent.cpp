@@ -11,7 +11,7 @@ void UTankAimingComponent::Initialize(UTankBarrel* BarrelToSet, UTankTurret* Tur
 	Turret = TurretToSet;
 }
 EFiringState UTankAimingComponent::GetFiringState() const { return FiringState; }
-int UTankAimingComponent::GetRoundsLeft() const { return RoundsLeft; }
+int32 UTankAimingComponent::GetRoundsLeft() const { return RoundsLeft; }
 
 UTankAimingComponent::UTankAimingComponent()
 {
