@@ -33,12 +33,12 @@ void AAITankController::SetPawn(APawn* InPawn)
 	{
 		ATank* PossessedTank = Cast<ATank>(InPawn);
 		if (!ensure(PossessedTank)) { return; }
-		//Subscribe method
 		PossessedTank->OnDeath.AddUniqueDynamic(this, &AAITankController::OnTankDeath);
 	}
 }
 
 void AAITankController::OnTankDeath()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Received"));
+	if (!GetPawn()) { return; }
+	GetPawn()->DetachFromControllerPendingDestroy();
 }
