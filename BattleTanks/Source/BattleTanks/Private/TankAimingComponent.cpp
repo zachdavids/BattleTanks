@@ -90,12 +90,12 @@ void UTankAimingComponent::Fire()
 	}
 }
 
-void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
+void UTankAimingComponent::MoveBarrelTowards(FVector AimTowards)
 {
 	if (!ensure(Barrel || Turret)) { return; }
 
 	FRotator BarrelRotator = Barrel->GetForwardVector().Rotation();
-	FRotator AimRotator = AimDirection.Rotation();
+	FRotator AimRotator = AimTowards.Rotation();
 	FRotator BarrelDeltaRotator = AimRotator - BarrelRotator;
 	Barrel->Elevate(BarrelDeltaRotator.Pitch);
 	FRotator TurretRotator = Turret->GetForwardVector().Rotation();

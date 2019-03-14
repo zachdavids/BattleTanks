@@ -15,7 +15,7 @@ void AAITankController::Tick(float DelaTime)
 
 	APawn* PlayerTank = GetWorld()->GetFirstPlayerController()->GetPawn();
 	APawn* ControlledTank = GetPawn();
-	if (!ensure(PlayerTank && ControlledTank)) { return; }
+	if (!(PlayerTank && ControlledTank)) { return; }
 
 	MoveToActor(PlayerTank, AcceptanceRadius); //todo check units
 	UTankAimingComponent* AimingComponent = ControlledTank->FindComponentByClass<UTankAimingComponent>();
@@ -32,7 +32,7 @@ void AAITankController::SetPawn(APawn* InPawn)
 	if (InPawn)
 	{
 		ATank* PossessedTank = Cast<ATank>(InPawn);
-		if (!ensure(PossessedTank)) { return; }
+		if (!PossessedTank) { return; }
 		PossessedTank->OnDeath.AddUniqueDynamic(this, &AAITankController::OnTankDeath);
 	}
 }
