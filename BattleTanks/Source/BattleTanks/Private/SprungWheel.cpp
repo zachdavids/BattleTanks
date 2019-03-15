@@ -37,6 +37,7 @@ void ASprungWheel::BeginPlay()
 void ASprungWheel::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
 	TotalMagnitude = 0;
 }
 
