@@ -16,12 +16,16 @@ public:
 
 	USpawnPoint();
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	AActor* GetSpawnedActor() const	{ return SpawnedActor; }
 
 protected:
 
 	virtual void BeginPlay() override;
 
-public:	
+private:	
+
+	UPROPERTY()
+	AActor* SpawnedActor;
 
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AActor> SpawnClass;

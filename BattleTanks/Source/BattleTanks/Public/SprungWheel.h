@@ -17,6 +17,7 @@ public:
 
 	ASprungWheel();
 	virtual void Tick(float DeltaTime) override;
+	void AddDrivingForce(float Magnitude);
 
 protected:
 
@@ -24,7 +25,14 @@ protected:
 
 private:
 
+	float TotalMagnitude = 0;
+
 	void SetupConstraint();
+
+	void ApplyForce();
+
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
 	UPROPERTY(VisibleAnywhere, Category = Components)
 	USphereComponent* Wheel = nullptr;
