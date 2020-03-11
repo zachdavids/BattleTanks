@@ -1,6 +1,10 @@
 # BattleTanks
 ****
 
+<p align="center">
+<img src="BattleTanks.gif">
+</p>
+
 An open-world battle tank game built using C++ and Blueprints in Unreal Engine 4. 
 
 ### Features
